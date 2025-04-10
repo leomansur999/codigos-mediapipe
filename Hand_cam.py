@@ -4,7 +4,7 @@ import serial
 import time
 
 # Configurar a porta serial (ajuste para a porta correta do seu Arduino)
-arduino = serial.Serial('COM8', 9600, timeout=1)
+arduino = serial.Serial('COM6', 9600, timeout=1)
 time.sleep(2)  # Aguarda a inicialização da conexão serial
 
 # Inicializa o MediaPipe Hands
@@ -24,6 +24,7 @@ while cap.isOpened():
 
     # Redimensiona o vídeo para 500x500
     frame = cv2.resize(frame, (500, 500))
+    cv2.line(frame, (0, 250), (500, 250), (255, 0, 0), 3)
 
     # Converte para RGB
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
